@@ -12,10 +12,68 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
+        
+        loadSidebar: true,//开启sidebar侧边栏
+        loadSidebar: 'summary.md',// 加载summary.md
+        coverpage: true,//封面创建
+        coverpage: 'coverpage.md',// 自定义文件名
+        // 点击之后出现404notfound页面？
+        //get start后面的正确写法应该为（XXX.md）
+        //homepage:true,
+        //homepage:home.md,
+        //auto2top: true,//切换后跳转到页面顶部
+        autoHeader: true,//自动添加标题
+        mergeNavbar: true,//Navbar将在小屏幕上与侧边栏合并。
+        subMaxLevel: 2,//在自定义边栏中添加目录（TOC）。
+        maxlevel: 4,//抓取文档中的目录
+        //ga: 'UA-106147152-1',
+        //加了unpkg.com/docsify之后，页面无法上下滑动
+        name: 'yunexkit',//左侧标题
+        logo: '/media/yunexlogo.png',//左侧logo
+        //文字和图片只能显示一个？
+        themeColor: '#09BB07',//主题色
+
+        search: 'auto', // 默认值
+
+        search : [
+          '/',// => /README.md
+          '/brand',// => /guide.md
+          '/home',// => /get-started.md
+          '/README',// => /zh-cn/README.md
+        ],
+
+        // 完整配置参数
+        search: {
+          maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+          paths: [], // or 'auto'
+          placeholder: 'Type to search',
+
+          // 支持本地化
+          placeholder: {
+            //'/': '搜索',
+            '/README':'搜索'
+            
+          },
+
+          noData: 'No Results!',
+
+          // 支持本地化
+          noData: {
+            //'/': '找不到结果',
+            '/README':'找不到结果'
+            
+          },
+
+          // 搜索标题的最大程级, 1 - 6
+          depth: 2
+        }    
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script>
+  
 </body>
 </html>
